@@ -86,7 +86,7 @@ function classificarIdade(idade) {
 /* Passo 4 - Organizar informações */
 function organizarDados(dadosUsuario, idade, classificacaoIdade) {
     let nascimento = new Date(`${dadosUsuario.anoNascimento}-${dadosUsuario.mesNascimento}-${dadosUsuario.diaNascimento}`);
-    let nascimentoFormatado = Intl.DateTimeFormat("pt-BR", { timeStyle: "long", dateStyle: "short" }).format(nascimento);
+    let nascimentoFormatado = Intl.DateTimeFormat("pt-BR", { dateStyle: "short" }).format(nascimento);
 
     //Três pontos recebe os atributos de um outro objeto já criado
     let dadosUsuarioAtualizado = {
