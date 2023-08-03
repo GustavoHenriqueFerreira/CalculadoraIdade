@@ -44,13 +44,13 @@ function calcular(diaNascimento, mesNascimento, anoNascimento) {
     let idade = hoje.getFullYear() - anoNascimento;
 
     // Se o mês atual é maior que o do aniversário, então ele fez mais um ano de vida
-    if (hoje.getMonth() > mesNascimento) {
-        idade++;
+    if (hoje.getMonth() < mesNascimento) {
+        idade--;
     } 
     
-    // Se os meses são os mesmos mas os dias atuais são maiores ou iguais ao dia de aniversário, então ele fez mais um ano de vida
-    else if (hoje.getMonth() == mesNascimento && hoje.getDate() >= diaNascimento) {
-        idade++;
+    // Se os meses são os mesmos mas os dias atuais são menores ou iguais ao dia de aniversário, então ele fez mais um ano de vida
+    else if (hoje.getMonth() == mesNascimento && hoje.getDate() <= diaNascimento) {
+        idade--;
     }
 
     console.log(idade);
@@ -85,7 +85,7 @@ function classificarIdade(idade) {
 
 /* Passo 4 - Organizar informações */
 function organizarDados(dadosUsuario, idade, classificacaoIdade) {
-    let nascimento = new Date(`${dadosUsuario.anoNascimento}-${dadosUsuario.mesNascimento}-${dadosUsuario.diaNascimento}`);
+    let nascimento = new Date(`${dadosUsuario.anoNascimento}/${dadosUsuario.mesNascimento}/${dadosUsuario.diaNascimento}`);
     let nascimentoFormatado = Intl.DateTimeFormat("pt-BR", { dateStyle: "short" }).format(nascimento);
 
     //Três pontos recebe os atributos de um outro objeto já criado
