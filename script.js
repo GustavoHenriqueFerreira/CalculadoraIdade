@@ -43,13 +43,13 @@ function calcular(diaNascimento, mesNascimento, anoNascimento) {
     // Diferença da idade sem mês e dia
     let idade = hoje.getFullYear() - anoNascimento;
 
-    // Se o mês atual é maior que o do aniversário, então ele fez mais um ano de vida
+    // Se o mês atual é menor que o do aniversário, então a pessoa não fez aniversário no ano
     if (hoje.getMonth() < mesNascimento) {
         idade--;
     } 
     
-    // Se os meses são os mesmos mas os dias atuais são menores ou iguais ao dia de aniversário, então ele fez mais um ano de vida
-    else if (hoje.getMonth() == mesNascimento && hoje.getDate() <= diaNascimento) {
+    // Se os meses são os mesmos mas os dias atuais são menores que ao dia de aniversário, então a pessoa não fez aniversário no ano
+    else if (hoje.getMonth() == mesNascimento && hoje.getDate() < diaNascimento) {
         idade--;
     }
 
